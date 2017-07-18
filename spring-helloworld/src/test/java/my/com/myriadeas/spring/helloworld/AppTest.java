@@ -1,5 +1,10 @@
 package my.com.myriadeas.spring.helloworld;
 
+import my.com.myriadeas.spring.HelloWorld;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -33,6 +38,11 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
+    	ApplicationContext context = new ClassPathXmlApplicationContext(
+				"SpringBeans.xml");
+
+		HelloWorld obj = (HelloWorld) context.getBean("helloBean");
+		obj.printHello();
+
     }
 }
